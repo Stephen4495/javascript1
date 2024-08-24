@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <button onclick="
+      variable1 = 1;
+ 
+      console.log(variable1)
+      ">1</button>
+
+    <button onclick="
+      variable1 = 2;
+
+      console.log(variable1)
+    ">2</button>
+
+    <button onclick="
+      variable1 = 3;
+     
+      console.log(variable1)
+    ">3</button>
+
+
+    <button onclick="
+     variable1 = 4;
+     console.log(variable1)
+    ">4</button>
+
+
+    <button onclick="
+      variable2 = variable1;
+      variable1 = 0;
+      
+    ">+</button>
+
+    <button onclick="
+     variable1 = variable2 + variable1;
+     variable2 = 0;
+     console.log('Answer', variable1)   
+    ">=</button>
+
+
+    <button onclick="
+     variable1 = 0;
+     console.log(variable1)
+    ">C</button>
+
+
+    <script>
+      let variable1 = 0;
+      let variable2 = 0;
+    </script>
+  </body>
+</html>

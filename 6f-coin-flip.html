@@ -2,22 +2,38 @@
 <html>
   <head>
     <title>Coin flip</title>
-    <body>
-      <script>
+  </head>
+  <body>
+    <button onclick="playgame('heads')">Heads</button>
+    <button onclick="playgame('tails')">Tails</button>
+    
+    <script>
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+      };
+      
+      function playgame(guess) {
         const randomNumber = Math.random();
         let result = '';
-        let guess = 'tail' 
-        
 
-
-        if (randomNumber <= 0.5 ) {
-          result = 'head';
-          console.log(`You win! It was ${result}`);
+        if (randomNumber <= 0.5) {
+          result = 'heads';
         } else {
-          result = 'tail';
-          console.log(`You lose! It was ${result}`);
+          result = 'tails';
         }
-      </script>
-    </body>
-  </head>
+
+        if (guess === result) {
+          console.log(`You win! It was ${result}`);
+          score.wins += 1; // Increment wins if the guess is correct
+        } else {
+          console.log(`You lose! It was ${result}`);
+          score.losses += 1; // Increment losses if the guess is incorrect
+        }
+
+        localStorage.setItem('score', JSON.stringify(score)); // Save the updated score
+        console.log(score);
+      }
+    </script>
+  </body>
 </html>

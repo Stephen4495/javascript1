@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weight Measurement</title>
+  </head>
+  <body>
+    <script>
+      const convertedWeight = convertWeight (154, 'lbs', 'kg');
+      console.log(convertedWeight);
+
+      function convertWeight(weight, from, to) {
+        if(from === 'kg' && to === 'lbs') {
+          return `${weight * 2.2}lbs`;
+        } else if (from === 'lbs' && to === 'kg') {
+          return `${weight / 2.2}kg`;
+        } else if (from === to) {
+          `${weight}${to}`;
+        }
+      }
+    </script>
+  </body>
+</html>

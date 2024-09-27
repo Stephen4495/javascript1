@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input oninput="
+      displayValue();
+      " class="js-input" type="text" placeholder="Type something">
+    <p class="js-result"></p>
+
+    <script>
+    
+      function displayValue() {
+       let output = document.querySelector('.js-input').value;
+
+       document.querySelector('.js-result').innerHTML = output;
+
+      }
+    </script>
+  </body>
+</html>

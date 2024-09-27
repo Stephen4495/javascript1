@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button onclick="
+    pickChoice('heads');
+    "
+    class="js-heads-button">heads</button>
+    <button onclick="
+    pickChoice('tails');
+    "
+    class="js-tails-button">tails</button>
+
+    <p class="js-result"></p>
+
+    <script>
+
+      function pickChoice (choice) {
+        updateResult(choice);
+      } 
+      
+      function updateResult(choice) {
+          document.querySelector('.js-result').innerHTML = `You picked: ${choice}`;
+        }
+    </script>
+  </body>
+</html>

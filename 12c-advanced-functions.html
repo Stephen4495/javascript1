@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button onclick="clicked();" class="js-start-button">Start</button>
+    
+    <script>
+      const buttonElement = document.querySelector('.js-start-button');
+
+      function clicked() { 
+        setTimeout(function() {
+          buttonElement.innerHTML = 'Loading...';
+          setTimeout(function() {
+            buttonElement.innerHTML = 'Finished!';
+          }, 1000); 
+
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

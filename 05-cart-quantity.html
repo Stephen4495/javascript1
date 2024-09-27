@@ -1,77 +1,77 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>cart quantity</title>
-    
+    <title>Cart Quantity</title>
   </head>
   <body>
-    <button onclick="
-      console.log(`cart quantity: ${cartQuantity}`);
-      ">Show Quantity</button>
+    <button onclick="updateCartQuantity('show')">Show Quantity</button>
     
-    <button onclick="
-    if (cartQuantity +1 > 10) {
-      alert('The cart is full');
-    }else {
-      cartQuantity ++;
-     console.log(`cart quantity: ${cartQuantity}`)
+    <button onclick="updateCartQuantity('add', 1)">Add to cart</button>
 
-    }
-     
-    ">Add to cart</button>
+    <button onclick="updateCartQuantity('add', 2)">+2</button>
 
-    <button onclick="
-    if (cartQuantity + 2 > 10) {
-      alert('The cart is full');
-    } else{
-      cartQuantity += 2;
-      console.log(`cart quantity: ${cartQuantity}`)
-    }
-     
+    <button onclick="updateCartQuantity('add', 3)">+3</button> 
+
+    <button onclick="updateCartQuantity('reset')">Reset Cart</button>
+
+    <button onclick="updateCartQuantity('subtract', 2)">-2</button>
+
+    <button onclick="updateCartQuantity('subtract', 3)">-3</button>
     
-    ">+2</button>
+    <script>
+      let cartQuantity = 0;
 
-    <button onclick="
-    if(cartQuantity + 3 > 10) {
-      alert('The cart is full');
-    } else{
-      cartQuantity += 3;
-      console.log(`cart quantity: ${cartQuantity}`)
-    }
-     
+      function updateCartQuantity(action, amount) {
+        // Handle the 'show' action
+        if (action === 'show') {
+          console.log(`cart quantity: ${cartQuantity}`);
+          return;
+        }
+        
+        // Handle invalid unit
+        if (action !== 'add' && action !== 'subtract' && action !== 'reset') {
+          alert(`Invalid action: ${action}`);
+          return;
+        }
+        
+        // Handle invalid amount for 'add' and 'subtract'
+        if (action === 'add' || action === 'subtract') {
+          if (typeof amount !== 'number' || amount <= 0) {
+            alert(`Invalid amount: ${amount}`);
+            return;
+          }
+        }
 
-    ">+3</button> 
+        // Handle the 'add' action
+        if (action === 'add') {
+          if (cartQuantity + amount > 10) {
+            alert('The cart is full');
+            return;
+          }
+          cartQuantity += amount;
+          console.log(`cart quantity: ${cartQuantity}`);
+          return;
+        }
 
-    <button onclick="
-    cartQuantity = 0;
-    console.log('cart was reset')
-     console.log(`cart quantity: ${cartQuantity}`)
-    ">Resect Cart</button>
+        // Handle the 'subtract' action
+        if (action === 'subtract') {
+          if (cartQuantity - amount < 0) {
+            alert('Not enough items in the cart');
+            return;
+          }
+          cartQuantity -= amount;
+          console.log(`cart quantity: ${cartQuantity}`);
+          return;
+        }
 
-    <button onclick="
-    if (cartQuantity - 2 < 0) {
-      alert('Not enough items in the cart')
-    }else{
-      cartQuantity -= 2;
-      console.log(`cart quantity: ${cartQuantity}` )
-    }
-    
-    ">-2</button>
-
-    <button onclick="
-    if (cartQuantity -3 < 0) {
-      alert('Not enough items in the cart')
-    } else{
-      cartQuantity -= 3;
-      console.log(`cart quantity: ${cartQuantity}`)
-    }
-     
-    ">-3</button>
-    
-  <script>
-   let cartQuantity = 0;
-   
-  
-  </script>
+        // Handle the 'reset' action
+        if (action === 'reset') {
+          cartQuantity = 0;
+          console.log('cart was reset');
+          console.log(`cart quantity: ${cartQuantity}`);
+          return;
+        }
+      }
+    </script>
   </body>
 </html>

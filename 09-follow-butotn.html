@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .follow-button{
+        background-color: rgb(0, 110, 255);
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button
+    onclick="
+    follow();
+    "
+    class="js-follow-button">Follow</button>
+
+    <script>
+      function follow () {
+        const buttonElement = document.querySelector('.js-follow-button');
+
+        if(buttonElement.innerHTML ==='Follow') {
+          buttonElement.innerHTML = 'Following';
+          buttonElement.classList.add('follow-button');
+        }else {
+          buttonElement.innerHTML = 'Follow'
+          ;
+        }
+      }
+     
+    </script>
+  </body>
+</html>

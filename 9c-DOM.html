@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button onclick="
+      add();
+      " 
+    class="js-add-button">Add</button>
+
+    <button onclick="
+    substract();
+    "
+    class="js-substract-button">substract</button>
+
+    <button onclick="
+      reset();
+    "
+    class="js-reset-button">reset</button>
+
+    <p class="
+    js-current-count"></p>
+
+    <p class="
+    js-message"></p>
+
+
+    <script>
+
+      let value = 0;
+      const minLimit = 0;
+
+      function add() {
+        
+        value += 1;
+        
+
+        updateDisplay();
+
+      }
+      function substract() {
+
+        if(value > minLimit) {
+          value -= 1;
+        }
+        else{
+          document.querySelector('.js-message').innerHTML = 'Minimum limit reached'
+
+        }
+          
+        updateDisplay();
+      }
+
+      function reset() {
+
+        value = 0;
+
+        updateDisplay();
+      }
+
+      function updateDisplay() {
+        document.querySelector('.js-current-count').innerHTML = value;
+      }
+    </script>
+  </body>
+  
+</html>

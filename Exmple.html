@@ -21,14 +21,16 @@
           </div>
         </div>
         <div class="third-container">
-          <div class="forget-password"> 
+          <div onclick="
+            alert('Why is your memory so low?')" class="forget-password"> 
             Forget Password?
           </div>
         </div>
         <div class="login-button-container">
           <button onclick="
-            alert('smile first :)')"
-             class="login-button">Login</button>
+          loginButtonElement();
+            "
+             class="login-button js-login-button">Login</button>
         </div>
         <div class="signup-container">
           <div class="text-1">Not a Member ?</div>
@@ -41,6 +43,14 @@
     </div>    
   </body>
   <script>
-    console.log('Welcome')
+    function loginButtonElement () {
+      const loginButton = document.querySelector('.js-login-button');
+
+      if(loginButton.innerHTML === 'Login') {
+        loginButton.innerHTML = 'Logged in';
+      }else {
+        loginButton.innerHTML = 'Login';
+      }
+    }
   </script>
 </html>
